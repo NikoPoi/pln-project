@@ -1,20 +1,22 @@
-const express = require('express');
-const morgan = require('morgan');
-const app = express()
-const router = express.Router()
+/* eslint-disable */
+const express = require('express')
+const bodyParser = require('body-parser')
+const morgan = require('morgan')
 const cors = require('cors')
+// const router = express.Router()
 // const {sequelize} = require('./models')
 
 // const posts = require('./api/posts')
-const port = process.env.PORT || 8081;
+const app = express()
+app.use(morgan('combined'))
+app.use(bodyParser.json())
+app.use(cors())
 // const config = require('./config/config')
 
 // app.use(express.urlencoded({ extended: true}))
 // app.use(express.json());
-app.use(morgan('combined'))
-app.use(cors())
 
-app.post('/status', (res, req) => {
+app.post('/register', (req, res) => {
     res.send({
         message: `Hello ${req.body.email}, your user has been registered! Have Fun!!!`
     })
@@ -28,4 +30,4 @@ app.post('/status', (res, req) => {
 
 // app.use('/api', router);
 
-app.listen(port, () => console.log(`Server listening on port ${port}!`));
+app.listen(process.env.PORT || 8081);
