@@ -1,10 +1,5 @@
 <template>
   <div class="body">
-    <div class="container-fluid mb-5">
-      <span>
-        <router-link to="/register">Sign Up</router-link>
-      </span>
-    </div>
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-6 card shadow">
